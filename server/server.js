@@ -24,6 +24,12 @@ app.use(session({
 }))
 
 app.post('/auth/register', authCtrl.register)
+app.post('/auth/login', authCtrl.login)
+app.get('/auth/user-data', authCtrl.userData)
+app.get('/logout', (req, res) => {
+    req.session.destroy()
+    res.redirect('http://localhost:3000/')
+})
 
 
 
